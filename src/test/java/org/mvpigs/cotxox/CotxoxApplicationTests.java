@@ -1,5 +1,6 @@
 package org.mvpigs.cotxox;
 
+import java.util.Arrays;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -140,29 +141,41 @@ public class CotxoxApplicationTests {
 		Assert.assertEquals("Samantha", conductor.getNombre());
 	}
 
-//	/**
-//	 * Completa el codi del cas test test_save_conductor()
-//	 * per a afegir les conductores següents a la BBDD
-//	 * mitjançant el servei de l'entitat conductor:
-//	 *
-//	 * String[] nombres = {"Sabrina", "Cici"};
-//	 * String[] matricula = {"5DHJ444", "7JKK555"};
-//	 * String[] modelos = {"Toyota Prius", "Mercedes A"};
-//	 */
-//
-//	@Test
-//	public void test_save_conductor() {
-//
-//		/**
-//		 * Escriu aqui el codi per a crear les conductores
-//		 * i escriure-les a la base de dades
-//		 */
-//
-//		Assert.assertEquals("Sabrina", conductorService.recuperarConductor("2222222222222222").getNombre());
-//		Assert.assertEquals("Cici", conductorService.recuperarConductor("3333333333333333").getNombre());
-//
-//	}
-//
+	/**
+	 * Completa el codi del cas test test_save_conductor()
+	 * per a afegir les conductores següents a la BBDD
+	 * mitjançant el servei de l'entitat conductor:
+	 *
+	 * String[] nombres = {"Sabrina", "Cici"};
+	 * String[] matricula = {"5DHJ444", "7JKK555"};
+	 * String[] modelos = {"Toyota Prius", "Mercedes A"};
+	 */
+
+	@Test
+	public void test_save_conductor() {
+
+		/**
+		 * Escriu aqui el codi per a crear les conductores
+		 * i escriure-les a la base de dades
+		 */
+
+		Conductor sabrina = new Conductor("2222222222222222");
+		sabrina.setNombre("Sabrina");
+		sabrina.setMatricula("5DHJ444");
+		sabrina.setModelo("Toyota Prius");
+		conductorRepo.save(sabrina);
+
+		Conductor cici=new Conductor("3333333333333333");
+		cici.setNombre("Cici");
+		cici.setMatricula("7JKK555");
+		cici.setModelo("Mercedes A");
+		conductorRepo.save(cici);
+
+		Assert.assertEquals("Sabrina", conductorService.recuperarConductor("2222222222222222").getNombre());
+		Assert.assertEquals("Cici", conductorService.recuperarConductor("3333333333333333").getNombre());
+
+	}
+
 //	/**
 //	 * Modifica l'atribut ocupat de l'entitat Conductor i la lògica
 //	 * del mètodes setOcupado() i isOcupado()
