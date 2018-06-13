@@ -8,9 +8,9 @@ import java.util.Set;
 @Entity
 @Table(name="t_conductores")
 public class Conductor {
+	@Id
 	@Column(name="co_tarjeta_credito")
 	private String tarjeta;
-	@Id
 	@Column(name="co_nombre")
 	private String nombre = null;
 	@Column(name="co_modelo")
