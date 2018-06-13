@@ -11,6 +11,7 @@ public class PoolConductores {
 	 * Constructores: necesitamos el constructor por defecto para trabajar con Spring JPA
 	 */
 
+
 	public PoolConductores() {};
 	
 	public PoolConductores(ArrayList<Conductor> poolConductores){
@@ -29,19 +30,19 @@ public class PoolConductores {
 	 * Lógica de la clase
 	 */
 
-//	public Conductor asignarConductor(){
-//		Conductor conductor = new Conductor();
-//		Random aleatorio = new Random();
-//		boolean asignado = false;
-//		while(!asignado){
-//			int index = aleatorio.nextInt(getPoolConductores().size());
-//			conductor = getPoolConductores().get(index);
-//			if(!conductor.isOcupado()){
-//				conductor.setOcupado(true);
-//				asignado = true;
-//			}
-//		}
-//		return conductor;
-//	}
+	public Conductor asignarConductor(){
+		Conductor conductor = new Conductor();
+		Random aleatorio = new Random();
+		boolean asignado = false;
+		while(!asignado){
+			int index = aleatorio.nextInt(getPoolConductores().size());
+			conductor = getPoolConductores().get(index);
+			if(!conductor.isOcupado()){
+				conductor.setOcupado(true);
+				asignado = true;
+			}
+		}
+		return conductor;
+	}
 	
 }

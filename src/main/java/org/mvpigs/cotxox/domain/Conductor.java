@@ -20,7 +20,7 @@ public class Conductor {
 	@Column(name="co_valoracion_media")
 	private double valoracionMedia = 0d;
 	@Column(name="co_ocupado")
-	private boolean ocupado = false;
+	private int ocupado = 0;
 	@Transient
 	private ArrayList<Byte> valoraciones = new ArrayList<>();
 	@OneToMany(mappedBy = "conductor")
@@ -92,11 +92,11 @@ public class Conductor {
 	}
 	
 	public void setOcupado(Boolean ocupado){
-		this.ocupado = ocupado;
+		this.ocupado = ocupado?1:0;
 	}
 	
 	public boolean isOcupado(){
-		return this.ocupado;
+		return this.ocupado==1?true:false;
 	}
 
 }
