@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mvpigs.cotxox.domain.Carrera;
 import org.mvpigs.cotxox.domain.Conductor;
+import org.mvpigs.cotxox.repo.CarreraRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.repository.Repository;
@@ -39,8 +40,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 public class CotxoxApplicationTests {
 
-//	@Autowired(required=false)
-//	CarreraRepo carreraRepo;
+	@Autowired(required=false)
+	CarreraRepo carreraRepo;
 //
 //	@Autowired(required=false)
 //	CarreraService carreraService;
@@ -83,16 +84,16 @@ public class CotxoxApplicationTests {
 		Assert.assertEquals("Samantha", carrera.getConductor().getNombre());
 	}
 
-//	/**
-//	 * Crea una classe CarreraRepo que sigui un repositori Spring Data
-//	 * per l'entitat Carrera
-//	 */
-//	@Test
-//	public void test_RepoCarerra_es_repositori() {
-//		Assert.assertNotNull(carreraRepo);
-//		Assert.assertTrue(carreraRepo instanceof Repository);
-//	}
-//
+	/**
+	 * Crea una classe CarreraRepo que sigui un repositori Spring Data
+	 * per l'entitat Carrera
+	 */
+	@Test
+	public void test_RepoCarerra_es_repositori() {
+		Assert.assertNotNull(carreraRepo);
+		Assert.assertTrue(carreraRepo instanceof Repository);
+	}
+
 //	/**
 //	 * Crea una classe CarreraService que sigui un component
 //	 * amb el rol de Service
