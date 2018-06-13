@@ -26,29 +26,28 @@ public class ConductorService {
      *
      */
 
-//    @PostConstruct
-//    public void init(){
-//        PoolConductores listaConductores = new PoolConductores();
-//
-//        Conductor sabrina = new Conductor("2222222222222222");
-//        sabrina.setNombre("Sabrina");
-//        sabrina.setMatricula("5DHJ444");
-//        sabrina.setModelo("Toyota Prius");
-//        sabrina.setOcupado(false);
-//
-//        listaConductores.getPoolConductores().add(sabrina);
-//
-//        Conductor cici=new Conductor("3333333333333333");
-//        cici.setNombre("Cici");
-//        cici.setMatricula("7JKK555");
-//        cici.setModelo("Mercedes A");
-//        cici.setOcupado(false);
-//
-//        listaConductores.getPoolConductores().add(cici);
-//
-//        conductorRepo.save(listaConductores.getPoolConductores());
-//
-//    }
+    public void init(){
+        PoolConductores listaConductores = new PoolConductores();
+
+        Conductor sabrina = new Conductor("2222222222222222");
+        sabrina.setNombre("Sabrina");
+        sabrina.setMatricula("5DHJ444");
+        sabrina.setModelo("Toyota Prius");
+        sabrina.setOcupado(false);
+
+        listaConductores.getPoolConductores().add(sabrina);
+
+        Conductor cici=new Conductor("3333333333333333");
+        cici.setNombre("Cici");
+        cici.setMatricula("7JKK555");
+        cici.setModelo("Mercedes A");
+        cici.setOcupado(false);
+
+        listaConductores.getPoolConductores().add(cici);
+
+        conductorRepo.save(listaConductores.getPoolConductores());
+
+    }
 
     public Conductor recuperarConductor(String tarjeta){
         return conductorRepo.findOne(tarjeta);

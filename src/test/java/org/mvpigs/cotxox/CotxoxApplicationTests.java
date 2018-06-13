@@ -192,46 +192,46 @@ public class CotxoxApplicationTests {
 		Assert.assertEquals(true, conductora.isOcupado());
 	}
 
-//	/**
-//	 * Modifica el servei de l'entitat conductor amb un mètode init() per a inserir
-//	 * a la base de dades les conductores següents, totes dues desocupades:
-//	 * String[] nombres = {"Sabrina", "Cici"};
-//	 * String[] matricula = {"5DHJ444", "7JKK555"};
-//	 * String[] modelos = {"Toyota Prius", "Mercedes A"}
-//	 */
-//
-//	 @Test
-//	 public void test_post_construct_servei_conductor() {
-//
-//		conductorService.init();
-//		Assert.assertEquals("Sabrina", conductorService.recuperarConductor("2222222222222222").getNombre());
-//		Assert.assertEquals(false,conductorService.recuperarConductor("2222222222222222").isOcupado());
-//		Assert.assertEquals("Cici", conductorService.recuperarConductor("3333333333333333").getNombre());
-//		Assert.assertEquals(false,conductorService.recuperarConductor("3333333333333333").isOcupado());
-//	 }
+	/**
+	 * Modifica el servei de l'entitat conductor amb un mètode init() per a inserir
+	 * a la base de dades les conductores següents, totes dues desocupades:
+	 * String[] nombres = {"Sabrina", "Cici"};
+	 * String[] matricula = {"5DHJ444", "7JKK555"};
+	 * String[] modelos = {"Toyota Prius", "Mercedes A"}
+	 */
 
-//	 /**
-//	  * Implementa un métode en el repositori de l'entitat Conductor
-//	  * que retorni una llista de conductores lliures
-//	  */
-//
-//	 @Test
-//	 public void test_recuperar_conductor_libre_repositori() {
-//
-//		// només n'hi ha una conductora, Samantha, a la BBDD
-//
-//		List<Conductor> conductoresLibres = conductorRepo.findByOcupado(0);
-//		Assert.assertNotNull(conductoresLibres);
-//		Assert.assertEquals("Samantha", conductoresLibres.get(0).getNombre());
-//		Assert.assertEquals(false, conductoresLibres.get(0).isOcupado());
-//
-//		// introduïm més conductores a la BBDD
-//
-//		conductorService.init();
-//		conductoresLibres = conductorRepo.findByOcupado(0);
-//		Assert.assertEquals(3, conductoresLibres.size());
-//		Assert.assertEquals(false, conductoresLibres.get(1).isOcupado());
-//	}
+	 @Test
+	 public void test_post_construct_servei_conductor() {
+
+		conductorService.init();
+		Assert.assertEquals("Sabrina", conductorService.recuperarConductor("2222222222222222").getNombre());
+		Assert.assertEquals(false,conductorService.recuperarConductor("2222222222222222").isOcupado());
+		Assert.assertEquals("Cici", conductorService.recuperarConductor("3333333333333333").getNombre());
+		Assert.assertEquals(false,conductorService.recuperarConductor("3333333333333333").isOcupado());
+	 }
+
+	 /**
+	  * Implementa un métode en el repositori de l'entitat Conductor
+	  * que retorni una llista de conductores lliures
+	  */
+
+	 @Test
+	 public void test_recuperar_conductor_libre_repositori() {
+
+		// només n'hi ha una conductora, Samantha, a la BBDD
+
+		List<Conductor> conductoresLibres = conductorRepo.findByOcupado(0);
+		Assert.assertNotNull(conductoresLibres);
+		Assert.assertEquals("Samantha", conductoresLibres.get(0).getNombre());
+		Assert.assertEquals(false, conductoresLibres.get(0).isOcupado());
+
+		// introduïm més conductores a la BBDD
+
+		conductorService.init();
+		conductoresLibres = conductorRepo.findByOcupado(0);
+		Assert.assertEquals(3, conductoresLibres.size());
+		Assert.assertEquals(false, conductoresLibres.get(1).isOcupado());
+	}
 
 //	/**
 //	 * Implementa un mètode en el servei de l'entitat Conductor
