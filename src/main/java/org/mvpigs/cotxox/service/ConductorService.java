@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ConductorService {
@@ -57,5 +58,10 @@ public class ConductorService {
         if(conductor != null) {
             conductorRepo.save(conductor);
         }
+    }
+
+    public Conductor recuperarConductorLibre(){
+        List<Conductor> conductoresLibres = conductorRepo.findByOcupado(0);
+        return conductoresLibres.get(0);
     }
 }

@@ -233,26 +233,25 @@ public class CotxoxApplicationTests {
 		Assert.assertEquals(false, conductoresLibres.get(1).isOcupado());
 	}
 
-//	/**
-//	 * Implementa un mètode en el servei de l'entitat Conductor
-//	 * que retorni una llista de conductores lliures
-//	 */
-//
-//	@Test
-//	public void tets_conductor_libre_service() {
-//
-//		conductorService.init();
-//
-//		Conductor conductora = conductorService.recuperarConductorLibre();
-//		Assert.assertNotNull(conductora);
-//		Assert.assertEquals(false, conductora.isOcupado());
-//	}
-//
-//	/**
-//	 * Assigna una conductora a una carrera que ja existeix a la BBDD
-//	 * i comprova que s'ha actualitzat el registre
-//	 */
-//
+	/**
+	 * Implementa un mètode en el servei de l'entitat Conductor
+	 * que retorni una llista de conductores lliures
+	 */
+
+	@Test
+	public void tets_conductor_libre_service() {
+		conductorService.init();
+
+		Conductor conductora = conductorService.recuperarConductorLibre();
+		Assert.assertNotNull(conductora);
+		Assert.assertEquals(false, conductora.isOcupado());
+	}
+
+	/**
+	 * Assigna una conductora a una carrera que ja existeix a la BBDD
+	 * i comprova que s'ha actualitzat el registre
+	 */
+
 //	@Test
 //	public void test_asignar_conductor() {
 //		Long idCarrera = carreraService.crearCarrera("1234567890123456", "Parc de Ses Estacions", "Festival Park", 15, 18);
