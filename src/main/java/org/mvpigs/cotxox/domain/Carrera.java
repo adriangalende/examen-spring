@@ -32,6 +32,7 @@ public class Carrera {
 	 * Constructores: necesitamos el constructor por defecto 
 	 * para trabajar con Spring JPA
 	 */
+	public Carrera(){}
 
 	public Carrera(String tarjetaCredito){
 		this.tarjetaCredito = tarjetaCredito;
