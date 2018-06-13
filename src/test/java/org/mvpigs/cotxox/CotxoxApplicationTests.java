@@ -291,15 +291,18 @@ public class CotxoxApplicationTests {
 		carrera.setConductor(conductor);
 
 		conductor.setValoracion((byte) 3);
+		carreraService.updateCarrera(carrera);
+		conductorRepo.save(conductor);
 
 		idCarrera = carreraService.crearCarrera("1234567890123459", "Plaça d'espanya", "Mallorca fan", 15, 18);
 		carrera = carreraService.recuperaCarrera(idCarrera);
 		carrera.setConductor(conductor);
-
 		conductor.setValoracion((byte) 5);
+		carreraService.updateCarrera(carrera);
+		conductorRepo.save(conductor);
 
 
-		carreraService.obtenerMediaPuntos(conductor.getNombre());
+		Assert.assertEquals(carreraService.obtenerMediaPuntos(conductor.getNombre()),conductor.getValoracion(),0);
 
 		Assert.assertNotNull(carrera);
 	}

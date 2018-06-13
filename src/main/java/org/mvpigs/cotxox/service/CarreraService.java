@@ -38,7 +38,6 @@ public class CarreraService {
     }
 
     public Double obtenerMediaPuntos(String nombre){
-        List<Conductor> valmedia = carreraRepo.obtenerMediaPuntos(nombre);
-        return null;
+        return carreraRepo.obtenerMediaPuntos(nombre);
     }
 }
