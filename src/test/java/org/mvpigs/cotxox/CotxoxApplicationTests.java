@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mvpigs.cotxox.domain.Carrera;
 import org.mvpigs.cotxox.domain.Conductor;
+import org.mvpigs.cotxox.domain.PoolConductores;
 import org.mvpigs.cotxox.repo.CarreraRepo;
 import org.mvpigs.cotxox.repo.ConductorRepo;
 import org.mvpigs.cotxox.service.CarreraService;
@@ -252,29 +253,55 @@ public class CotxoxApplicationTests {
 	 * i comprova que s'ha actualitzat el registre
 	 */
 
-//	@Test
-//	public void test_asignar_conductor() {
-//		Long idCarrera = carreraService.crearCarrera("1234567890123456", "Parc de Ses Estacions", "Festival Park", 15, 18);
-//		// seria necesario añadir el conductor pero vamos a testear primero repo
-//		Assert.assertEquals("1234567890123456", carreraService.recuperaCarrera(idCarrera).getTarjetaCredito());
-//
-//		Carrera carrera = carreraService.recuperaCarrera(idCarrera);
-//		Assert.assertNotNull(carrera);
-//
-//		Conductor conductora = conductorService.recuperarConductorLibre();
-//		Assert.assertNotNull(conductora);
-//
-//		carrera.setConductor(conductora);
-//		Assert.assertEquals("Samantha", carrera.getConductor().getNombre());
-//
-//		carreraService.updateCarrera(carrera);
-//		Assert.assertEquals("Samantha", carreraService.recuperaCarrera(idCarrera).getConductor().getNombre());
-//	}
-//
-//	/**
-//	 * A completar:
-//	 *  - Introducció de la valoració que l'usuari/a fa del conductor/a al termini de la carrera.
-//	 *  - Càlcul de la mitjana de valoracions d'un conductor/a mitjançant @Query
-//	 *    al CrudRepositori de CarrerasRepo.
-//	 */
+	@Test
+	public void test_asignar_conductor() {
+		Long idCarrera = carreraService.crearCarrera("1234567890123456", "Parc de Ses Estacions", "Festival Park", 15, 18);
+		// seria necesario añadir el conductor pero vamos a testear primero repo
+		Assert.assertEquals("1234567890123456", carreraService.recuperaCarrera(idCarrera).getTarjetaCredito());
+
+		Carrera carrera = carreraService.recuperaCarrera(idCarrera);
+		Assert.assertNotNull(carrera);
+
+		Conductor conductora = conductorService.recuperarConductorLibre();
+		Assert.assertNotNull(conductora);
+
+		carrera.setConductor(conductora);
+		Assert.assertEquals("Samantha", carrera.getConductor().getNombre());
+
+		carreraService.updateCarrera(carrera);
+		Assert.assertEquals("Samantha", carreraService.recuperaCarrera(idCarrera).getConductor().getNombre());
+	}
+
+	/**
+	 * A completar:
+	 *  - Introducció de la valoració que l'usuari/a fa del conductor/a al termini de la carrera.
+	 *  - Càlcul de la mitjana de valoracions d'un conductor/a mitjançant @Query
+	 *    al CrudRepositori de CarrerasRepo.
+	 */
+	@Test
+	public void test_calcular_media_conductor(){
+		conductorService.init();
+
+		Conductor conductor = conductorService.recuperarConductor("2222222222222222");
+		Assert.assertNotNull(conductor);
+		conductor.setOcupado(false);
+
+		Long idCarrera = carreraService.crearCarrera("1234567890123456", "Parc de Ses Estacions", "Festival Park", 15, 18);
+		Carrera carrera = carreraService.recuperaCarrera(idCarrera);
+		carrera.setConductor(conductor);
+
+		conductor.setValoracion((byte) 3);
+
+		idCarrera = carreraService.crearCarrera("1234567890123459", "Plaça d'espanya", "Mallorca fan", 15, 18);
+		carrera = carreraService.recuperaCarrera(idCarrera);
+		carrera.setConductor(conductor);
+
+		conductor.setValoracion((byte) 5);
+
+
+		carreraService.obtenerMediaPuntos(conductor.getNombre());
+
+		Assert.assertNotNull(carrera);
+	}
+
 }
