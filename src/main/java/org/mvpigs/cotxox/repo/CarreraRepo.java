@@ -13,7 +13,7 @@ import java.util.Set;
 @Repository
 public interface CarreraRepo extends CrudRepository<Carrera, Long> {
 
-    @Query("select conductor.valoracionMedia from Carrera carrera join carrera.conductor conductor where carrera.conductor.nombre = ?1")
+    @Query("select carrera.conductor.valoracionMedia from Carrera carrera join carrera.conductor conductor where carrera.conductor.nombre = ?1")
     public Double obtenerMediaPuntos(String nombre);
 
 
