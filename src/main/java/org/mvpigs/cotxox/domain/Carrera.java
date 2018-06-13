@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name="t_carreras")
 public class Carrera {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="c_id")
 	private Long id;
 	@Column(name="c_tarjeta_credito")
@@ -48,6 +49,10 @@ public class Carrera {
 
 	public String getTarjetaCredito(){
 		return this.tarjetaCredito;
+	}
+
+	public void setTarjetaCredito(String tarjetaCredito){
+		this.tarjetaCredito = tarjetaCredito;
 	}
 	
 	public void setOrigen(String origen){
