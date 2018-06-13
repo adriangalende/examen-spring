@@ -13,4 +13,10 @@ public class ConductorService {
     public Conductor recuperarConductor(String tarjeta){
         return conductorRepo.findOne(tarjeta);
     }
+
+    public void anadirConductor(Conductor conductor){
+        if(conductor != null) {
+            conductorRepo.save(conductor);
+        }
+    }
 }

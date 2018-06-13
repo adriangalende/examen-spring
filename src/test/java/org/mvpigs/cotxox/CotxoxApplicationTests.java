@@ -163,13 +163,14 @@ public class CotxoxApplicationTests {
 		sabrina.setNombre("Sabrina");
 		sabrina.setMatricula("5DHJ444");
 		sabrina.setModelo("Toyota Prius");
-		conductorRepo.save(sabrina);
 
 		Conductor cici=new Conductor("3333333333333333");
 		cici.setNombre("Cici");
 		cici.setMatricula("7JKK555");
 		cici.setModelo("Mercedes A");
-		conductorRepo.save(cici);
+
+		conductorService.anadirConductor(sabrina);
+		conductorService.anadirConductor(cici);
 
 		Assert.assertEquals("Sabrina", conductorService.recuperarConductor("2222222222222222").getNombre());
 		Assert.assertEquals("Cici", conductorService.recuperarConductor("3333333333333333").getNombre());
